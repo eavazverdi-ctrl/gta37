@@ -84,7 +84,7 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
 
 .sheet{ position:fixed; inset:0; background:rgba(0,0,0,.4); display:none; align-items:flex-end; justify-content:center; }
 .sheet.open{ display:flex; }
-.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:var(--hairline) solid rgba(255,255,255,.16); border-bottom:none; }
+.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:var(--hairline) solid rgba(255,255,255,.16); border-bottom:none;  max-height:88dvh; -webkit-overflow-scrolling:touch; }
 .sheet-handle{ width:40px; height:4px; background:#666; border-radius:99px; margin:8px auto; opacity:.8; }
 .sheet-title{ font-weight:700; font-size:15px; margin-bottom:8px; }
 .sheet-row{ display:grid; grid-template-columns:140px 1fr auto; gap:10px; align-items:center; margin:10px 0; }
@@ -127,3 +127,41 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
 .auth-error{ margin-top:8px; color:#ff8a8a; text-align:center; }
 
 html,body{ overflow:hidden;  overscroll-behavior: none; }
+
+
+/* === Button background images (replace files later if you like) === */
+:root{
+  --img-btn-green: url('./assets/btn/green.png');
+  --img-btn-red:   url('./assets/btn/red.png');
+  --img-btn-yellow:url('./assets/btn/yellow.png');
+  --img-btn-blue:  url('./assets/btn/blue.png');
+  --img-btn-white: url('./assets/btn/white.png');
+}
+
+/* Apply to key buttons */
+.card-head.green.clickable{
+  background-image: var(--img-btn-green);
+  background-size: cover; background-position:center; background-repeat:no-repeat;
+  background-color: rgba(56,201,98, calc(var(--btn-alpha, 0.16) + .06));
+  background-blend-mode: overlay;
+}
+.card-head.pink.clickable{
+  background-image: var(--img-btn-red);
+  background-size: cover; background-position:center; background-repeat:no-repeat;
+  background-color: rgba(255,170,185, calc(var(--btn-alpha, 0.16) + .06));
+  background-blend-mode: overlay;
+}
+
+.send-btn{
+  background-size: cover; background-position:center; background-repeat:no-repeat;
+  background-blend-mode: overlay;
+}
+#sendBuy.send-btn{
+  background-image: var(--img-btn-green);
+  background-color: rgba(56,201,98, var(--btn-alpha, 0.16));
+}
+#sendSell.send-btn{
+  background-image: var(--img-btn-red);
+  background-color: rgba(255,92,100, var(--btn-alpha, 0.16));
+}
+
