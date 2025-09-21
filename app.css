@@ -84,7 +84,7 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
 
 .sheet{ position:fixed; inset:0; background:rgba(0,0,0,.4); display:none; align-items:flex-end; justify-content:center; }
 .sheet.open{ display:flex; }
-.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:1px solid rgba(255,255,255,.16); border-bottom:none; }
+.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:1px solid rgba(255,255,255,.16); border-bottom:none;  max-height:calc(100dvh - 40px); overflow:auto; -webkit-overflow-scrolling:touch; }
 .sheet-handle{ width:40px; height:4px; background:#666; border-radius:99px; margin:8px auto; opacity:.8; }
 .sheet-title{ font-weight:700; font-size:15px; margin-bottom:8px; }
 .sheet-row{ display:grid; grid-template-columns:140px 1fr auto; gap:10px; align-items:center; margin:10px 0; }
@@ -183,5 +183,46 @@ button, .send-btn{
 #authBtn{     background-image: var(--img-btn-blue); }
 
 /* If you have neutral/white-tint buttons, add a class .btn-white to them */
+.btn-white{ background-image: var(--img-btn-white) !important; }
+
+
+
+/* === v47: Glass + Image on ALL buttons and clickable heads === */
+:root{
+  --img-btn-green: url('./assets/btn/green.png');
+  --img-btn-red:   url('./assets/btn/red.png');
+  --img-btn-yellow:url('./assets/btn/yellow.png');
+  --img-btn-blue:  url('./assets/btn/blue.png');
+  --img-btn-white: url('./assets/btn/white.png');
+}
+
+/* Base glass & image behavior */
+button, .send-btn, .card-head.clickable{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  -webkit-backdrop-filter: blur(var(--btn-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--btn-blur)) saturate(160%);
+  border: var(--hairline, .2px) solid rgba(255,255,255,var(--card-border-alpha, .18));
+}
+
+/* Role-based images */
+.card-head.green.clickable{ background-image: var(--img-btn-green); }
+.card-head.pink.clickable{  background-image: var(--img-btn-red);   }
+
+#sendBuy.send-btn{  background-image: var(--img-btn-green); }
+#sendSell.send-btn{ background-image: var(--img-btn-red);   }
+
+/* Settings, Sheets & Auth buttons keep blue unless overridden */
+#saveRelay{   background-image: var(--img-btn-blue); }
+#testRelay{   background-image: var(--img-btn-blue); }
+#bgApply{     background-image: var(--img-btn-blue); }
+#bgRemove{    background-image: var(--img-btn-red);  }
+#confirmSend{ background-image: var(--img-btn-blue); }
+#authBtn{     background-image: var(--img-btn-blue); }
+#glassFab{    background-image: var(--img-btn-blue); }
+
+/* Optional: neutral buttons */
 .btn-white{ background-image: var(--img-btn-white) !important; }
 
