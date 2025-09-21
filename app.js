@@ -85,29 +85,44 @@ document.getElementById('sellHead')?.addEventListener('click', ()=>{
   setSell('—','—','—');
 });
 
-// ===== Glass & Settings (with Telegram settings) =====
+
+// ===== Glass & Settings (separate body/buttons) =====
 (function(){
   const sheet = document.getElementById('glassSheet');
   const fab   = document.getElementById('glassFab');
-  const alpha = document.getElementById('alpha');
-  const border= document.getElementById('border');
-  const blur  = document.getElementById('blur');
+
+  const alphaCard = document.getElementById('alphaCard');
+  const blurCard  = document.getElementById('blurCard');
+  const alphaBtn  = document.getElementById('alphaBtn');
+  const blurBtn   = document.getElementById('blurBtn');
 
   const r = document.documentElement.style;
-  function load(k,d){ return localStorage.getItem(k) ?? d; }
-  function save(k,v){ localStorage.setItem(k,v); }
+  function load(k,d){ try{ return localStorage.getItem(k) ?? d; }catch(e){ return d; } }
+  function save(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+
   function apply(){
-    r.setProperty('--card-alpha', load('ga','0.12'));
-    r.setProperty('--card-border-alpha', load('gb','0.12'));
-    r.setProperty('--card-blur', load('gc','14px'));
-    alpha.value  = parseFloat(load('ga','0.12')); document.getElementById('alphaVal').textContent=alpha.value;
-    border.value = parseFloat(load('gb','0.12')); document.getElementById('borderVal').textContent=border.value;
-    blur.value   = parseFloat(load('gc','14px')); document.getElementById('blurVal').textContent  =blur.value+'px';
+    // بدنه
+    const ca = load('ga','0.12');
+    const cb = load('gc','14px');
+    r.setProperty('--card-alpha', ca);
+    r.setProperty('--card-blur',  cb);
+    // کلیدها
+    const ba = load('ba','0.16');
+    const bb = load('bc','14px');
+    r.setProperty('--btn-alpha', ba);
+    r.setProperty('--btn-blur',  bb);
+
+    if (alphaCard){ alphaCard.value = parseFloat(ca); document.getElementById('alphaCardVal').textContent = alphaCard.value; }
+    if (blurCard){  blurCard.value  = parseFloat(cb); document.getElementById('blurCardVal').textContent  = blurCard.value+'px'; }
+    if (alphaBtn){  alphaBtn.value  = parseFloat(ba); document.getElementById('alphaBtnVal').textContent  = alphaBtn.value; }
+    if (blurBtn){   blurBtn.value   = parseFloat(bb); document.getElementById('blurBtnVal').textContent   = blurBtn.value+'px'; }
   }
   apply();
-  alpha?.addEventListener('input', ()=>{ save('ga',alpha.value); apply(); });
-  border?.addEventListener('input', ()=>{ save('gb',border.value); apply(); });
-  blur?.addEventListener('input',  ()=>{ save('gc',blur.value+'px'); apply(); });
+
+  alphaCard?.addEventListener('input', ()=>{ save('ga', alphaCard.value); apply(); });
+  blurCard ?.addEventListener('input', ()=>{ save('gc', blurCard.value+'px'); apply(); });
+  alphaBtn ?.addEventListener('input', ()=>{ save('ba', alphaBtn.value); apply(); });
+  blurBtn  ?.addEventListener('input', ()=>{ save('bc', blurBtn.value+'px'); apply(); });
 
   fab?.addEventListener('click', ()=>{
     sheet.classList.toggle('open');

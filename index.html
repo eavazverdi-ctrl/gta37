@@ -52,29 +52,27 @@
   <section class="sheet" id="glassSheet" aria-hidden="true">
     <div class="sheet-handle"></div>
     <div class="sheet-body">
+      
       <div class="sheet-title">تنظیم شیشه بدنه</div>
       <div class="sheet-row">
         <label>شفافیت</label>
-        <input type="range" id="alpha" min="0.06" max="0.28" step="0.01"><span id="alphaVal"></span>
-      </div>
-      <div class="sheet-row">
-        <label>مرز</label>
-        <input type="range" id="border" min="0.00" max="0.20" step="0.01"><span id="borderVal"></span>
+        <input type="range" id="alphaCard" min="0.06" max="0.28" step="0.01"><span id="alphaCardVal"></span>
       </div>
       <div class="sheet-row">
         <label>تاری</label>
-        <input type="range" id="blur" min="8" max="30" step="1"><span id="blurVal"></span>
+        <input type="range" id="blurCard" min="8" max="30" step="1"><span id="blurCardVal"></span>
       </div>
-      <div class="preset-row">
-        <button data-preset="soft">نرم</button>
-        <button data-preset="default">پیش‌فرض</button>
-        <button data-preset="solid">مات</button>
-        <button data-preset="reset">ریست</button>
-      </div>
-      <div class="hint">تغییرات ذخیره می‌شوند و در اجراهای بعدی هم اعمال می‌گردند.</div>
 
-      <hr style="opacity:.12;border:none;border-top:1px solid rgba(255,255,255,.18);margin:10px 0;">
-      <div class="sheet-title" style="margin-top:0">تنظیمات تلگرام (ارسال مستقیم با ربات)</div>
+      <div class="sheet-title" style="margin-top:8px">تنظیم شیشه کلیدها</div>
+      <div class="sheet-row">
+        <label>شفافیت</label>
+        <input type="range" id="alphaBtn" min="0.06" max="0.40" step="0.01"><span id="alphaBtnVal"></span>
+      </div>
+      <div class="sheet-row">
+        <label>تاری</label>
+        <input type="range" id="blurBtn" min="8" max="30" step="1"><span id="blurBtnVal"></span>
+      </div>
+ (ارسال مستقیم با ربات)</div>
       <div class="sheet-row" style="grid-template-columns: 160px 1fr;">
         <label>Relay URL</label>
         <input id="relayUrlInput" placeholder="https://your-worker.workers.dev">
