@@ -1,5 +1,5 @@
 
-:root{ --hairline: .2px; --btn-alpha: 0.16; --btn-blur: 14px;  --field-h:32px; --field-radius:14px; --field-font:15px; 
+:root{ --field-h:32px; --field-radius:14px; --field-font:15px; 
   --card-alpha: 0.12;
   --card-border-alpha: 0.12;
   --card-blur: 14px;
@@ -22,7 +22,7 @@ body{ overflow:hidden;
 }
 
 .card{
-  border-radius:18px; border:var(--hairline) solid rgba(255,255,255,var(--card-border-alpha));
+  border-radius:18px; border:1px solid rgba(255,255,255,var(--card-border-alpha));
   background: rgba(255,255,255,var(--card-alpha));
   backdrop-filter: blur(var(--card-blur)) saturate(160%);
   -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
@@ -42,7 +42,7 @@ body{ overflow:hidden;
   line-height:var(--field-h);
   padding:0 12px;
   border-radius:var(--field-radius);
-  border:var(--hairline) solid rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.22);
   background:rgba(255,255,255,.92);
   color:#000;
   outline:none;
@@ -62,7 +62,7 @@ body{ overflow:hidden;
   line-height:var(--field-h);
   padding:0 12px;
   border-radius:var(--field-radius);
-  border:var(--hairline) solid rgba(255,255,255,.2);
+  border:1px solid rgba(255,255,255,.2);
   font-size:14px;
   font-weight:800;
   text-align:center;
@@ -77,27 +77,27 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
 
 .fab{
   position:fixed; bottom:14px; left:14px; width:44px; height:44px; border-radius:14px;
-  border:var(--hairline) solid rgba(255,255,255,.22); background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22); background:rgba(255,255,255,.14);
   backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   display:flex; align-items:center; justify-content:center; font-size:15px; cursor:pointer;
 }
 
 .sheet{ position:fixed; inset:0; background:rgba(0,0,0,.4); display:none; align-items:flex-end; justify-content:center; }
 .sheet.open{ display:flex; }
-.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:var(--hairline) solid rgba(255,255,255,.16); border-bottom:none;  max-height:88dvh; -webkit-overflow-scrolling:touch; }
+.sheet-body{ overflow:hidden;  width:100%; max-width:900px; background:rgba(28,28,30,.9); color:#fff; border-top-left-radius:16px; border-top-right-radius:16px; padding:12px 14px 24px; border:1px solid rgba(255,255,255,.16); border-bottom:none; }
 .sheet-handle{ width:40px; height:4px; background:#666; border-radius:99px; margin:8px auto; opacity:.8; }
 .sheet-title{ font-weight:700; font-size:15px; margin-bottom:8px; }
 .sheet-row{ display:grid; grid-template-columns:140px 1fr auto; gap:10px; align-items:center; margin:10px 0; }
 .sheet-row input[type=range]{ width:100%; }
 .preset-row{ display:flex; gap:8px; margin-top:6px; flex-wrap:wrap; }
-.preset-row>button{ border-radius:12px; border:var(--hairline) solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; padding:8px 12px; }
+.preset-row>button{ border-radius:12px; border:1px solid rgba(255,255,255,.2); background:rgba(255,255,255,.1); color:#fff; padding:8px 12px; }
 .hint{ opacity:.7; font-size:15px; margin-top:8px; }
 
 .preview{ white-space:pre-wrap; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); border-radius:12px; padding:10px; min-height:72px; }
 
 .sheet-row input:not([type=range]){
   width:100%; border-radius:12px; padding:0 10px;
-  border:var(--hairline) solid rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.22);
   background:#2C2C2E; color:#fff; outline:none;
 }
 
@@ -107,29 +107,50 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
   height:var(--field-h);
   line-height:var(--field-h);
   border-radius:var(--field-radius);
-  border:var(--hairline) solid rgba(0,0,0,.08);
+  border:1px solid rgba(0,0,0,.08);
   padding:0 12px;
   font-weight:800;
   font-size:14px;
   cursor:pointer;
   box-sizing:border-box;
 }
-.send-btn.buy{ background: rgba(56,201,98,var(--btn-alpha)); color:#0f5132; -webkit-backdrop-filter: blur(var(--btn-blur)) saturate(160%); backdrop-filter: blur(var(--btn-blur)) saturate(160%); }
-.send-btn.sell{ background: rgba(255,92,100,var(--btn-alpha)); color:#842029; -webkit-backdrop-filter: blur(var(--btn-blur)) saturate(160%); backdrop-filter: blur(var(--btn-blur)) saturate(160%); }
+.send-btn.buy{ background:#c6f6d5; color:#0f5132; }
+.send-btn.sell{ background:#ffd6de; color:#842029; }
 
 /* Auth gate */
 .auth{ position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.5); backdrop-filter:blur(6px); }
 .auth[aria-hidden="true"]{ display:none; }
-.auth-card{ width:92%; max-width:360px; background:rgba(28,28,30,.85); border:var(--hairline) solid rgba(255,255,255,.2); border-radius:16px; padding:18px; }
+.auth-card{ width:92%; max-width:360px; background:rgba(28,28,30,.85); border:1px solid rgba(255,255,255,.2); border-radius:16px; padding:18px; }
 .auth-title{ font-weight:800; margin-bottom:12px; text-align:center; }
-.auth-card input{ width:100%; border-radius:12px; padding:0 10px; border:var(--hairline) solid rgba(255,255,255,.22); background:#fff; color:#000; margin-top:8px; }
+.auth-card input{ width:100%; border-radius:12px; padding:0 10px; border:1px solid rgba(255,255,255,.22); background:#fff; color:#000; margin-top:8px; }
 .auth-card button{ margin-top:10px; width:100%; padding:0 10px; border-radius:12px; background:#2c7be5; border:none; color:#fff; font-weight:700; }
 .auth-error{ margin-top:8px; color:#ff8a8a; text-align:center; }
 
 html,body{ overflow:hidden;  overscroll-behavior: none; }
 
 
-/* === Button background images (replace files later if you like) === */
+/* === v46: Settings sheet full height & scroll === */
+.sheet{ position:fixed; inset:0; display:flex; align-items:flex-end; background:rgba(0,0,0,.35);
+        opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:9999; }
+.sheet.open{ opacity:1; pointer-events:auto; }
+.sheet-body{
+  width:100%;
+  max-height:calc(100dvh - 40px);
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  background:rgba(20,20,25,.68);
+  backdrop-filter: blur(18px) saturate(160%);
+  border-top-left-radius:16px; border-top-right-radius:16px;
+  padding:12px 16px calc(16px + env(safe-area-inset-bottom));
+  transform: translateY(8px);
+  transition:transform .25s ease;
+}
+.sheet.open .sheet-body{ transform: translateY(0); }
+.sheet-handle{ width:48px; height:5px; border-radius:3px; background:rgba(255,255,255,.4); margin:6px auto 10px; }
+
+
+
+/* === v46: Button image backgrounds === */
 :root{
   --img-btn-green: url('./assets/btn/green.png');
   --img-btn-red:   url('./assets/btn/red.png');
@@ -138,30 +159,29 @@ html,body{ overflow:hidden;  overscroll-behavior: none; }
   --img-btn-white: url('./assets/btn/white.png');
 }
 
-/* Apply to key buttons */
-.card-head.green.clickable{
-  background-image: var(--img-btn-green);
-  background-size: cover; background-position:center; background-repeat:no-repeat;
-  background-color: rgba(56,201,98, calc(var(--btn-alpha, 0.16) + .06));
-  background-blend-mode: overlay;
-}
-.card-head.pink.clickable{
-  background-image: var(--img-btn-red);
-  background-size: cover; background-position:center; background-repeat:no-repeat;
-  background-color: rgba(255,170,185, calc(var(--btn-alpha, 0.16) + .06));
+/* Default style for any button */
+button, .send-btn{
+  background-image: var(--img-btn-blue);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-blend-mode: overlay;
 }
 
-.send-btn{
-  background-size: cover; background-position:center; background-repeat:no-repeat;
-  background-blend-mode: overlay;
-}
-#sendBuy.send-btn{
-  background-image: var(--img-btn-green);
-  background-color: rgba(56,201,98, var(--btn-alpha, 0.16));
-}
-#sendSell.send-btn{
-  background-image: var(--img-btn-red);
-  background-color: rgba(255,92,100, var(--btn-alpha, 0.16));
-}
+/* Specific roles */
+#sendBuy.send-btn{   background-image: var(--img-btn-green); }
+#sendSell.send-btn{  background-image: var(--img-btn-red);   }
+.card-head.green.clickable{ background-image: var(--img-btn-green); }
+.card-head.pink.clickable{  background-image: var(--img-btn-red);   }
+
+/* Settings/Sheets/Auth buttons */
+#saveRelay{   background-image: var(--img-btn-blue); }
+#testRelay{   background-image: var(--img-btn-blue); }
+#bgApply{     background-image: var(--img-btn-blue); }
+#bgRemove{    background-image: var(--img-btn-red);  }
+#confirmSend{ background-image: var(--img-btn-blue); }
+#authBtn{     background-image: var(--img-btn-blue); }
+
+/* If you have neutral/white-tint buttons, add a class .btn-white to them */
+.btn-white{ background-image: var(--img-btn-white) !important; }
 
