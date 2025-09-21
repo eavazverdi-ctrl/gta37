@@ -127,3 +127,70 @@ hr{ border:none; border-top:1px solid rgba(255,255,255,.14); margin:8px 0; }
 .auth-error{ margin-top:8px; color:#ff8a8a; text-align:center; }
 
 html,body{ overflow:hidden;  overscroll-behavior: none; }
+
+
+/* ===== FX Levels v42 — glass everywhere (buttons/inputs/badges) ===== */
+
+/* ورودی‌ها: شیشه سفید (بی‌رنگ) با همان تنظیمات کارت */
+.row input{
+  background: rgba(255,255,255, var(--card-alpha)) !important;
+  border: 1px solid rgba(255,255,255, var(--card-border-alpha)) !important;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+  color:#000;
+}
+
+/* خروجی‌ها (badge) با رنگ نقش‌ها اما شیشه‌ای */
+.badge{ color:#0b0b0b; font-weight:600; }
+.green-soft{ /* نقاط ورود خرید */
+  background: rgba(56,201,98, var(--card-alpha)) !important;
+  border: 1px solid rgba(56,201,98, var(--card-border-alpha)) !important;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+  color:#0f5132;
+}
+.red-soft{   /* نقاط ورود فروش */
+  background: rgba(255,92,100, var(--card-alpha)) !important;
+  border: 1px solid rgba(255,92,100, var(--card-border-alpha)) !important;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+  color:#842029;
+}
+.yellow{     /* استاپ‌لاس */
+  background: rgba(255,224,102, var(--card-alpha)) !important;
+  border: 1px solid rgba(255,224,102, var(--card-border-alpha)) !important;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+  color:#7a5d00;
+}
+
+/* دکمه‌های ارسال به تلگرام شیشه‌ای (مطابق خرید/فروش) */
+.send-btn{
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+  border: 1px solid rgba(255,255,255, var(--card-border-alpha));
+}
+.send-btn.buy{
+  background: rgba(56,201,98, var(--card-alpha)) !important;
+  border-color: rgba(56,201,98, var(--card-border-alpha)) !important;
+  color:#0f5132;
+}
+.send-btn.sell{
+  background: rgba(255,92,100, var(--card-alpha)) !important;
+  border-color: rgba(255,92,100, var(--card-border-alpha)) !important;
+  color:#842029;
+}
+
+/* تیترهای کارت هم کمی گلس شوند تا هماهنگ شوند */
+.card-head.green{
+  background: rgba(56,201,98, calc(var(--card-alpha) + 0.06)) !important;
+  color:#0f5132;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+}
+.card-head.pink{
+  background: rgba(255,170,185, calc(var(--card-alpha) + 0.06)) !important;
+  color:#842029;
+  -webkit-backdrop-filter: blur(var(--card-blur)) saturate(160%);
+  backdrop-filter:         blur(var(--card-blur)) saturate(160%);
+}
